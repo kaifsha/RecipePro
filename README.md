@@ -1,3 +1,10 @@
+FOR RUN THE PROJECT 
+
+RUN THIS COMMAND 
+"npm install"
+FOR RUN THE SERVER
+"npm run dev"
+
 <<<<<<< HEAD
 # React + Vite
 

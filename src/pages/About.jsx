@@ -1,13 +1,20 @@
+
+
+
+
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Navbar from './Navbar';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const MealDetail = () => {
+const About = () => {
   const { mealId } = useParams();
   const [meal, setMeal] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [error, setError] = useState('');
+  const [meals, setMeals] = useState([]);
 
   useEffect(() => {
     const fetchMealDetails = async () => {
@@ -62,45 +69,28 @@ const MealDetail = () => {
   if (!meal) return <p>Loading...</p>;
 
   return (
-    <div>
-      <Navbar 
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        handleSearch={handleSearch}
-      />
-      
-      <div className="search-hero">
-        <div className="hero-image-container">
-          <img 
-            src={meal.strMealThumb} 
-            alt={meal.strMeal} 
-            className="hero-image"
-          />
-          <h1 className="hero-title">{meal.strMeal}</h1>
+    <div className="about-page">
+      <div className="page-content">
+        <Navbar
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          handleSearch={handleSearch}
+        />
+        <div className="about-container">
+          <div className="about-content"></div>
+          <div className="about-section">
+            <div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias deserunt magnam, esse assumenda voluptatem laborum laudantium, consectetur aliquid nemo facere officiis aspernatur earum harum? Cumque, ipsum labore. Alias qui, reprehenderit a, quia debitis explicabo inventore mollitia sit accusamus voluptates unde.</p>
+            </div>
+            <div>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias deserunt magnam, esse assumenda voluptatem laborum laudantium, consectetur aliquid nemo facere officiis aspernatur earum harum? Cumque, ipsum labore. Alias qui, reprehenderit a, quia debitis explicabo inventore mollitia sit accusamus voluptates unde.</p>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="popular-categories">
-        <h2 className="categories-title">Most Popular Dish Detil</h2>
-        <p className="categories-subtitle">
-          Enjoy these amazing recipes!
-        </p>
-      </div>
-  
-      <div className='meal-main-section'>
-      <div className="meal-details">
-        <img src={meal.strMealThumb} alt={meal.strMeal} className='detail-img' />
-        <div className='sub-section'>
-          <h2>{meal.strMeal}</h2>
-          <p>{meal.strInstructions}</p>
-        </div>
-      </div>
-      </div>
-
       <Footer />
     </div>
   );
-  
 };
 
-export default MealDetail;
+export default About;

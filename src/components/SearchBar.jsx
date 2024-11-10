@@ -80,7 +80,7 @@ const SearchBar = ({ searchQuery, setSearchQuery, handleSearch }) => {
         />
         <button onClick={handleSearch}>
           Search
-          <i className="fas fa-search"></i>
+          {/* <i className="fas fa-search"></i> */}
         </button>
       </div>
       

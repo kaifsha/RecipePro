@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-import Navbar from './Navbar';
+import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
-const MealDetail = () => {
+const Contact = () => {
+
   const { mealId } = useParams();
   const [meal, setMeal] = useState(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [error, setError] = useState('');
+  const [meals, setMeals] = useState([]);
 
   useEffect(() => {
     const fetchMealDetails = async () => {
@@ -60,47 +63,52 @@ const MealDetail = () => {
   };
 
   if (!meal) return <p>Loading...</p>;
-
   return (
-    <div>
-      <Navbar 
-        searchQuery={searchQuery}
-        setSearchQuery={setSearchQuery}
-        handleSearch={handleSearch}
-      />
-      
-      <div className="search-hero">
-        <div className="hero-image-container">
-          <img 
-            src={meal.strMealThumb} 
-            alt={meal.strMeal} 
-            className="hero-image"
-          />
-          <h1 className="hero-title">{meal.strMeal}</h1>
+    <div className="contact-page">
+      <Navbar
+          searchQuery={searchQuery}
+          setSearchQuery={setSearchQuery}
+          handleSearch={handleSearch}
+        />
+      <div className="contact-container">
+      <div className="contact-content"></div>
+        <div className="contact-contents">
+          <div className="contact-form">
+            <h2>Send us a Message</h2>
+            <form>
+              <div className="form-group">
+                <input type="text" placeholder="Your Name" />
+              </div>
+              <div className="form-group">
+                <input type="email" placeholder="Your Email" />
+              </div>
+              <div className="form-group">
+                <textarea placeholder="Your Message"></textarea>
+              </div>
+              <button type="submit" className='contact-btn'>Send Message</button>
+            </form>
+          </div>
+          
+          <div className="contact-info">
+            <h2>Get in Touch</h2>
+            <div className="info-item">
+              <i className="fas fa-envelope"></i>
+              <p>info@recipeplatform.com</p>
+            </div>
+            <div className="info-item">
+              <i className="fas fa-phone"></i>
+              <p>+1 234 567 8900</p>
+            </div>
+            <div className="info-item">
+              <i className="fas fa-location-dot"></i>
+              <p>123 Recipe Street, Foodville, FC 12345</p>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div className="popular-categories">
-        <h2 className="categories-title">Most Popular Dish Detil</h2>
-        <p className="categories-subtitle">
-          Enjoy these amazing recipes!
-        </p>
-      </div>
-  
-      <div className='meal-main-section'>
-      <div className="meal-details">
-        <img src={meal.strMealThumb} alt={meal.strMeal} className='detail-img' />
-        <div className='sub-section'>
-          <h2>{meal.strMeal}</h2>
-          <p>{meal.strInstructions}</p>
-        </div>
-      </div>
-      </div>
-
       <Footer />
     </div>
   );
-  
 };
 
-export default MealDetail;
+export default Contact;

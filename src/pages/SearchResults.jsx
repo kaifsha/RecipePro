@@ -98,11 +98,11 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import axios from 'axios';
-import Slider from 'react-slick';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import MealCard from '../components/MealCard';
 import MealDetailModal from '../components/MealDetailModal';
+import Footer from '../components/Footer';
 
 const SearchResults = () => {
   const [selectedMeal, setSelectedMeal] = useState(null);
@@ -249,6 +249,7 @@ const SearchResults = () => {
       {selectedMeal && (
         <MealDetailModal meal={selectedMeal} onClose={handleCloseModal} />
       )}
+      <Footer />
     </div>
   );
 };

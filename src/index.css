@@ -85,6 +85,7 @@ h1 {
   margin: auto;
   padding-top: 20px;
   margin-bottom: 15px;
+  overflow-x: auto;
 }
 
 .meal-card {
@@ -858,7 +859,7 @@ footer {
 }
 
 .about-content {
-  background-image: url('https://www.bing.com/images/blob?bcid=r0v07mTeSLoHdg');
+  background-image: url('https://www.bing.com/images/blob?bcid=r47.fjpnj7oHow');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -868,7 +869,7 @@ footer {
 }
 
 .contact-content{
-  background-image: url('https://www.bing.com/images/blob?bcid=r7iQwtMUtLoH3A');
+  background-image: url('https://www.bing.com/images/blob?bcid=r3hL0GqMC7oHMg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -1055,6 +1056,7 @@ footer {
     flex-direction: column;
     gap: 15px;
     display: -webkit-box;
+    overflow-x: auto;
   }
   .fav-title{
     font-size: 15px;
@@ -1231,6 +1233,7 @@ footer {
 @media screen and (max-width: 768px) {
   .meals-container {
     grid-template-columns: repeat(3, 1fr);
+    overflow-x: auto;
   }
 
  
